@@ -1,5 +1,4 @@
 # Bonzai - Echo Arena
-https://dotnet.microsoft.com/en-ucanva/download/dotnet/thank-you/runtime-desktop-6.0.35-windows-x64-installer?cid=getdotnetcore
 
 # About:
 Bonzai is a program for the VR Game, Echo Arena, that reads the API data and provides helpful utilities.
