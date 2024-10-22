@@ -1,19 +1,19 @@
 # Bonzai - Echo Arena
-![Bonzai](https://github.com/user-attachments/assets/f4f0055b-c5b7-4b91-b286-0bf9e92f7836)
+https://dotnet.microsoft.com/en-ucanva/download/dotnet/thank-you/runtime-desktop-6.0.35-windows-x64-installer?cid=getdotnetcore
 
 # About:
-Bonzai is a program for the Oculus VR title, Echo Arena. It supports things like text-to-speech throwing speed readouts, private lobby joining, etc. This is aimed to similar to [Spark](https://github.com/NtsFranz/Spark), another tool for Echo Arena.
+Bonzai is a program for the VR Game, Echo Arena, that reads the API data and provides helpful utilities.
 
 # Utilties / Goals
 
 | Use | Status |
 |---|---|
 | Text-To-Speech | Complete |
+| Team Player List | Complete |
+| Ping Spike Detection | In Progress |
 | Lobby Joining | In Progress |
-| Discord Intergration | Planned |
 | Custom Player Stats | Planned |
-| Team Player List | Planned |
-| Ping Spike Detection | Planned |
+| Discord Intergration | Planned |
 | Private Match Rules | Planned |
 
 # Credit
