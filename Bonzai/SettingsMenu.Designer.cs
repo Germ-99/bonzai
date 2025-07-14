@@ -159,7 +159,7 @@
             // PSCHECK
             // 
             PSCHECK.AutoSize = true;
-            PSCHECK.Enabled = false;
+            PSCHECK.Enabled = true;
             PSCHECK.Location = new Point(232, 265);
             PSCHECK.Name = "PSCHECK";
             PSCHECK.Size = new Size(96, 20);
