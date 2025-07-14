@@ -23,7 +23,7 @@ namespace Bonzai
             PropertyChanged += MainPropertyChanged;
 
             timer = new System.Windows.Forms.Timer();
-            timer.Interval = 100; // Fetch data every 1 second.
+            timer.Interval = 100;
             timer.Tick += async (s, e) => await FetchAPIData.UpdateDataAsync();
             timer.Tick += async (s, e) => await UpdateData();
             timer.Start();
@@ -101,6 +101,8 @@ namespace Bonzai
                 ORANGEPLAYER.Text = string.Join(Environment.NewLine, FetchAPIData.orangePlayerNames);
                 SPECTATORS.Text = string.Join(Environment.NewLine, FetchAPIData.specatatorPlayerNames);
 
+                CheckPingSpikes();
+
                 if (FetchAPIData.blue_points <= 9)
                 {
                     BLUESCORE.Text = ("0" + FetchAPIData.blue_points);
@@ -134,6 +136,41 @@ namespace Bonzai
                 BLUESCORE.Text = "00";
                 ORANGESCORE.Text = "00";
                 TIME.Text = "00:00.00";
+            }
+        }
+
+        private void CheckPingSpikes()
+        {
+            if (Properties.Settings.Default.pingSpike && Properties.Settings.Default.tts)
+            {
+                foreach (var kvp in FetchAPIData.playerPings)
+                {
+                    string playerName = kvp.Key;
+                    int currentPing = kvp.Value;
+
+                    if (FetchAPIData.previousPlayerPings.TryGetValue(playerName, out int previousPing))
+                    {
+                        int pingIncrease = currentPing - previousPing;
+
+                        if (pingIncrease >= 25)
+                        {
+                            synthesizer.SpeakAsync($"{playerName} had a ping spike");
+                        }
+                    }
+
+                    // Update or add this player's current ping for the next comparison
+                    FetchAPIData.previousPlayerPings[playerName] = currentPing;
+                }
+
+                // Remove player pings for people who are no longer in the game
+                var stalePlayers = FetchAPIData.previousPlayerPings.Keys
+                    .Where(name => !FetchAPIData.playerPings.ContainsKey(name))
+                    .ToList();
+
+                foreach (var name in stalePlayers)
+                {
+                    FetchAPIData.previousPlayerPings.Remove(name);
+                }
             }
         }
 
