@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using System.Text.Json;
 using System.Speech.Synthesis;
 
@@ -21,6 +21,8 @@ namespace Bonzai
         public static List<string> bluePlayerNames = new List<string>();
         public static List<string> orangePlayerNames = new List<string>();
         public static List<string> specatatorPlayerNames = new List<string>();
+        public static Dictionary<string, int> playerPings = new Dictionary<string, int>();
+        public static Dictionary<string, int> previousPlayerPings = new Dictionary<string, int>();
 
         public static async Task<(string sessionID, string game_Status, string client_Name, string game_clock_display, double last_Throw, double last_Goal, string lobby_IP, int blue_points, int orange_points, List<string> bluePlayerNames, List<string> orangePlayerNames, List<string> spectatorPlayerNames)> FetchAPIDataAsync()
         {
@@ -57,11 +59,13 @@ namespace Bonzai
                         if (team0.TryGetProperty("players", out JsonElement bluePlayers))
                         {
                             // Loop through the players array and add their names
+
                             foreach (var player in bluePlayers.EnumerateArray())
                             {
                                 string playerName = player.GetProperty("name").GetString();
                                 int playerPing = player.GetProperty("ping").GetInt32();
                                 bluePlayerNames.Add(playerName);
+                                playerPings[playerName] = playerPing;
                             }
                         }
 
@@ -70,11 +74,13 @@ namespace Bonzai
                         if (team1.TryGetProperty("players", out JsonElement orangePlayers))
                         {
                             // Loop through the players array and add their names
+
                             foreach (var player in orangePlayers.EnumerateArray())
                             {
                                 string playerName = player.GetProperty("name").GetString();
                                 int playerPing = player.GetProperty("ping").GetInt32();
                                 orangePlayerNames.Add(playerName);
+                                playerPings[playerName] = playerPing;
                             }
                         }
 
@@ -83,10 +89,13 @@ namespace Bonzai
                         if (team2.TryGetProperty("players", out JsonElement spectators))
                         {
                             // Loop through the players array and add their names
+
                             foreach (var player in spectators.EnumerateArray())
                             {
                                 string playerName = player.GetProperty("name").GetString();
+                                int playerPing = player.GetProperty("ping").GetInt32();
                                 spectatorPlayerNames.Add(playerName);
+                                playerPings[playerName] = playerPing;
                             }
                         }
 
