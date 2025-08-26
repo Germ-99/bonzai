@@ -53,13 +53,10 @@ namespace Bonzai
                         List<string> orangePlayerNames = new List<string>();
                         List<string> spectatorPlayerNames = new List<string>();
 
-                        // Only get players from teams[0]
                         var team0 = jsonObject.RootElement.GetProperty("teams")[0];
 
                         if (team0.TryGetProperty("players", out JsonElement bluePlayers))
                         {
-                            // Loop through the players array and add their names
-
                             foreach (var player in bluePlayers.EnumerateArray())
                             {
                                 string playerName = player.GetProperty("name").GetString();
@@ -73,8 +70,6 @@ namespace Bonzai
 
                         if (team1.TryGetProperty("players", out JsonElement orangePlayers))
                         {
-                            // Loop through the players array and add their names
-
                             foreach (var player in orangePlayers.EnumerateArray())
                             {
                                 string playerName = player.GetProperty("name").GetString();
@@ -88,8 +83,6 @@ namespace Bonzai
 
                         if (team2.TryGetProperty("players", out JsonElement spectators))
                         {
-                            // Loop through the players array and add their names
-
                             foreach (var player in spectators.EnumerateArray())
                             {
                                 string playerName = player.GetProperty("name").GetString();
