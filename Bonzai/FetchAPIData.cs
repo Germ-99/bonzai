@@ -1,13 +1,11 @@
 using System.ComponentModel;
 using System.Text.Json;
-using System.Speech.Synthesis;
 
 namespace Bonzai
 {
     internal class FetchAPIData : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public static SpeechSynthesizer synthesizer = new SpeechSynthesizer();
         public static string sessionID = "";
         public static string game_Status = "";
         public static string client_Name = "";
