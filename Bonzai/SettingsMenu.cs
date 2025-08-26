@@ -65,17 +65,14 @@ namespace Bonzai
             switch(Properties.Settings.Default.voiceSpeed){
                 case: 0{
                     MainMenu.synthesizer.Rate = -5;
-                    FetchAPIData.synthesizer.Rate = -5; 
                     break;
                 }
                 case: 1{
                     MainMenu.synthesizer.Rate = 0;
-                    FetchAPIData.synthesizer.Rate = 0; 
                     break;
                 }
                 case: 2{
                     MainMenu.synthesizer.Rate = 7;
-                    FetchAPIData.synthesizer.Rate = 7; 
                     break;
                 }
             }
