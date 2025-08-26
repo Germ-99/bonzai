@@ -70,16 +70,30 @@ namespace Bonzai
         {
             lastSessionID = "";
 
-            if (Properties.Settings.Default.voiceGender == 0) { synthesizer.SelectVoiceByHints(VoiceGender.Male, VoiceAge.Adult); }
-
-            if (Properties.Settings.Default.voiceGender == 1) { synthesizer.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Adult); }
-
-
-            if (Properties.Settings.Default.voiceSpeed == 0) { synthesizer.Rate = -5; }
-
-            if (Properties.Settings.Default.voiceSpeed == 1) { synthesizer.Rate = 0; }
-
-            if (Properties.Settings.Default.voiceSpeed == 2) { synthesizer.Rate = 7; }
+            switch(Properties.Settings.Default.voiceGender){
+                case: 0{
+                    synthesizer.SelectVoiceByHints(VoiceGender.Male, VoiceAge.Adult;
+                    break;
+                }
+                case: 1{
+                    synthesizer.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Adult;
+                    break;
+                }
+            }
+            switch(Properties.Settings.Default.voiceSpeed){
+                case: 0{
+                    synthesizer.Rate = -5;
+                    break;
+                }
+                case: 1{
+                    synthesizer.Rate = 0;
+                    break;
+                }
+                case: 2{
+                    synthesizer.Rate = 7;
+                    break;
+                }
+            }
         }
 
         public async Task UpdateData()
