@@ -40,7 +40,7 @@ namespace Bonzai
             RSCHECK.Checked = Properties.Settings.Default.regrabSpeed;
             PSCHECK.Checked = Properties.Settings.Default.pingSpike;
         }
-        
+
         private void SaveSettings()
         {
             Properties.Settings.Default.tts = TTSCHECK.Checked;
@@ -52,32 +52,27 @@ namespace Bonzai
             Properties.Settings.Default.pingSpike = PSCHECK.Checked;
             Properties.Settings.Default.Save();
 
-            switch(Properties.Settings.Default.voiceGender){
-                case: 0{
-                    MainMenu.synthesizer.SelectVoiceByHints(VoiceGender.Male, VoiceAge.Adult); 
+            switch (Properties.Settings.Default.voiceGender)
+            {
+                case 0:
+                    MainMenu.synthesizer.SelectVoiceByHints(VoiceGender.Male, VoiceAge.Adult);
                     break;
-                }
-                case: 1{
-                    MainMenu.synthesizer.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Adult); 
+                case 1:
+                    MainMenu.synthesizer.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Adult);
                     break;
-                }
             }
-            switch(Properties.Settings.Default.voiceSpeed){
-                case: 0{
+            switch (Properties.Settings.Default.voiceSpeed)
+            {
+                case 0:
                     MainMenu.synthesizer.Rate = -5;
                     break;
-                }
-                case: 1{
+                case 1:
                     MainMenu.synthesizer.Rate = 0;
                     break;
-                }
-                case: 2{
+                case 2:
                     MainMenu.synthesizer.Rate = 7;
                     break;
-                }
             }
-            // for testing
-            // System.Diagnostics.Debug.WriteLine(Properties.Settings.Default.voiceGender.ToString() + " + " + Properties.Settings.Default.voiceSpeed.ToString());
         }
 
         private void TTSCHECK_CheckedChanged(object sender, EventArgs e)

@@ -70,29 +70,26 @@ namespace Bonzai
         {
             lastSessionID = "";
 
-            switch(Properties.Settings.Default.voiceGender){
-                case: 0{
-                    synthesizer.SelectVoiceByHints(VoiceGender.Male, VoiceAge.Adult;
+            switch (Properties.Settings.Default.voiceGender)
+            {
+                case 0:
+                    synthesizer.SelectVoiceByHints(VoiceGender.Male, VoiceAge.Adult);
                     break;
-                }
-                case: 1{
-                    synthesizer.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Adult;
+                case 1:
+                    synthesizer.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Adult);
                     break;
-                }
             }
-            switch(Properties.Settings.Default.voiceSpeed){
-                case: 0{
+            switch (Properties.Settings.Default.voiceSpeed)
+            {
+                case 0:
                     synthesizer.Rate = -5;
                     break;
-                }
-                case: 1{
+                case 1:
                     synthesizer.Rate = 0;
                     break;
-                }
-                case: 2{
+                case 2:
                     synthesizer.Rate = 7;
                     break;
-                }
             }
         }
 
@@ -197,7 +194,7 @@ namespace Bonzai
         void OnLastGoalChanged()
         {
             if (Properties.Settings.Default.lastGoal && Properties.Settings.Default.tts)
-                synthesizer.SpeakAsync(Math.Round(last_Throw, 1).ToString());
+                synthesizer.SpeakAsync(Math.Round(last_Goal, 1).ToString()); 
         }
 
         protected virtual void OnPropertyChanged(string propertyName)
