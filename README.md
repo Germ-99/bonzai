@@ -28,6 +28,6 @@ hollowdash - Coding<br/>
 germ99_ - Coding / Testing<br/>
 
 # Requirements
-[.NET Runtime](https://dotnet.microsoft.com/en-us/download)
+[.NET Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 
 <sup><sub>Made in Visual Studio with Microsoft .NET 6</sub></sup>
