@@ -1,3 +1,6 @@
+// NOTE: I recommend keeping ping spike TTS off
+// people have really bad internet...
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
