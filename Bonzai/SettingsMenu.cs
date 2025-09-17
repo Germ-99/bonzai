@@ -5,6 +5,8 @@
 // to clarify; those are meant for developers who are reading the code and may test other things during development
 // screw you mac (I still love you)
 
+// can a twink not be bored in class?
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
