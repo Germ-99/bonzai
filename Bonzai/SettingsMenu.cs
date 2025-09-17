@@ -1,6 +1,10 @@
 // NOTE: I recommend keeping ping spike TTS off
 // people have really bad internet...
 
+// ok, mac has gotten on me for writing that comment
+// to clarify; those are meant for developers who are reading the code and may test other things during development
+// screw you mac (I still love you)
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
