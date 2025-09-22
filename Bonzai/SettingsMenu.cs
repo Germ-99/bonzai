@@ -7,6 +7,8 @@
 
 // can a twink not be bored in class?
 
+// ^ god you're so hot
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
